@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Erlang常见报错和调试方法 | Jester&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Erlang常见错误Erlang中的运行错误包括：badarg, badarith, badmatch, function_clause, case_clause, if_clause, undef, noproc, system_limit等。Erlang运行时发生错误时，会返回一些错误信息，理解这些信息，对于学好、用好Erlang来说是必要。 badarg这个错误很好理解，参数类型错误，传入函">
+<meta name="keywords" content="Erlang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Erlang常见报错和调试方法">
+<meta property="og:url" content="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/index.html">
+<meta property="og:site_name" content="Jester&#39;s Blog">
+<meta property="og:description" content="Erlang常见错误Erlang中的运行错误包括：badarg, badarith, badmatch, function_clause, case_clause, if_clause, undef, noproc, system_limit等。Erlang运行时发生错误时，会返回一些错误信息，理解这些信息，对于学好、用好Erlang来说是必要。 badarg这个错误很好理解，参数类型错误，传入函">
+<meta property="og:updated_time" content="2017-06-02T01:23:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Erlang常见报错和调试方法">
+<meta name="twitter:description" content="Erlang常见错误Erlang中的运行错误包括：badarg, badarith, badmatch, function_clause, case_clause, if_clause, undef, noproc, system_limit等。Erlang运行时发生错误时，会返回一些错误信息，理解这些信息，对于学好、用好Erlang来说是必要。 badarg这个错误很好理解，参数类型错误，传入函">
+  
+    <link rel="alternate" href="/atom.xml" title="Jester&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jester&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://planan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-06-02-Erlang常见报错和调试方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" class="article-date">
+  <time datetime="2017-06-02T06:09:53.000Z" itemprop="datePublished">2017-06-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Erlang常见报错和调试方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Erlang常见错误"><a href="#Erlang常见错误" class="headerlink" title="Erlang常见错误"></a>Erlang常见错误</h1><p>Erlang中的运行错误包括：<strong>badarg</strong>, <strong>badarith</strong>, <strong>badmatch</strong>, <strong>function_clause</strong>, <strong>case_clause</strong>, <strong>if_clause</strong>, <strong>undef</strong>, <strong>noproc</strong>, <strong>system_limit</strong>等。Erlang运行时发生错误时，会返回一些错误信息，理解这些信息，对于学好、用好Erlang来说是必要。</p>
+<h1 id="badarg"><a href="#badarg" class="headerlink" title="badarg"></a>badarg</h1><p>这个错误很好理解，参数类型错误，传入函数的参数和函数声明要求的参数类型不匹配。</p>
+<h1 id="badarith"><a href="#badarith" class="headerlink" title="badarith"></a>badarith</h1><p>arith，atithmetic的简写，运算错误，例如将一个整数和一个atom相加。</p>
+<h1 id="badmatch-V"><a href="#badmatch-V" class="headerlink" title="{badmatch, V}"></a>{badmatch, V}</h1><p>模式匹配错误</p>
+<h1 id="function-clause"><a href="#function-clause" class="headerlink" title="function_clause"></a>function_clause</h1><p>从字面意思上看，是函数条款的错误。该错误信息表示找不到匹配的函数。例如，定义一个函数test:add/2，接收两个整数，并返回它们的和。如果传入小数，将找不到匹配的分支，会抛出function_clause。</p>
+<h1 id="case-clause-V"><a href="#case-clause-V" class="headerlink" title="{case_clause, V}"></a>{case_clause, V}</h1><p>case表达式找不到匹配的分支。一般要把“_”加到最后的分支中，作为容错或者其它。</p>
+<h1 id="if-clause"><a href="#if-clause" class="headerlink" title="if_clause"></a>if_clause</h1><p>Erlang中if表达式是case表达式的一种特殊方式，要求至少有一个分支测试条件的结果为true，否则会引发错误。</p>
+<h1 id="undef"><a href="#undef" class="headerlink" title="undef"></a>undef</h1><p>调用未定义的函数或者模块时，返回该错误信息。</p>
+<h1 id="noproc"><a href="#noproc" class="headerlink" title="noproc"></a>noproc</h1><p>进程不存在，例如gen_server:call一个不存在的进程。</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Pid  pid(<span class="number">0</span>, <span class="number">100</span>, <span class="number">10</span>).</div><div class="line"></div><div class="line">gen_server:call(Pid, test).</div><div class="line"></div><div class="line">** exception exit: &#123;noproc,&#123;gen_server,call,[&lt;<span class="number">0.100</span>.<span class="number">10</span>&gt;,test]&#125;&#125;</div><div class="line"></div><div class="line">in function gen_server:call/<span class="number">2</span> (gen_server.erl, line <span class="number">182</span>)</div></pre></td></tr></table></figure>
+<h1 id="system-limit"><a href="#system-limit" class="headerlink" title="system_limit"></a>system_limit</h1><p>超出系统上限，如atom，ets，port，process等。</p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>在开发中可使用try,catch捕获异常，同时也可以调用erlang:get_stacktrace()获取栈信息，定位错误。</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">	exprs</div><div class="line"><span class="keyword">catch</span></div><div class="line">	Class:Reason -&gt;</div><div class="line">	<span class="comment">%% 异常处理代码</span></div><div class="line">	<span class="comment">%% Class为异常类型，Reason为异常原因</span></div><div class="line">	ok</div><div class="line"><span class="keyword">end</span>.</div></pre></td></tr></table></figure>
+<p>例如：<br><figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">	whatever</div><div class="line"><span class="keyword">catch</span></div><div class="line">	Class:Reason -&gt;</div><div class="line">	io:format(<span class="string">"Class:~p, Reason:~p~nstacktrace:~n~p"</span>,</div><div class="line">	[Class, Reason, erlang:get_stacktrace()]),</div><div class="line">	error</div><div class="line"><span class="keyword">end</span>.</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line"></div><div class="line"># badrecord处理</div><div class="line"></div><div class="line"></div><div class="line">通过 is_record/<span class="number">2</span> 判断record类型后，将错误的记录打印出来</div><div class="line"></div><div class="line"></div><div class="line"># 调试方法</div><div class="line"></div><div class="line">``` Erlang</div><div class="line">Trace  <span class="keyword">try</span> throw(<span class="number">42</span>) <span class="keyword">catch</span> <span class="number">42</span> -&gt; erlang:get_stacktrace() <span class="keyword">end</span>,erlang:display(Trace)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" data-id="cj3n7ecx80001ukqwtb3369cv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Erlang/">Erlang</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/02/2017-06-01-hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Erlang/">Erlang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sicp/">sicp</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Erlang/" style="font-size: 10px;">Erlang</a> <a href="/tags/sicp/" style="font-size: 10px;">sicp</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/07/2017-06-07-sicp习题/">sicp习题</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/">Erlang常见报错和调试方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Jester<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
