@@ -115,15 +115,65 @@
 <h3 id="练习-1-11"><a href="#练习-1-11" class="headerlink" title="练习 1.11"></a>练习 1.11</h3><p>递归计算<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">f</span> n)</div><div class="line"> (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">&lt;</span></span> n <span class="number">3</span>)</div><div class="line">     n</div><div class="line">     (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">f</span> (<span class="name"><span class="builtin-name">-</span></span> n <span class="number">1</span>))</div><div class="line">        (<span class="name"><span class="builtin-name">*</span></span> <span class="number">2</span> (<span class="name">f</span> (<span class="name"><span class="builtin-name">-</span></span> n <span class="number">2</span>)))</div><div class="line">        (<span class="name"><span class="builtin-name">*</span></span> <span class="number">3</span> (<span class="name">f</span> (<span class="name"><span class="builtin-name">-</span></span> n <span class="number">3</span>))))))</div></pre></td></tr></table></figure></p>
 <p>迭代计算<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">f</span> n)</div><div class="line">  (<span class="name">f-iter</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> n))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">f-iter</span> a b c n)</div><div class="line">  (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">&lt;</span></span> n <span class="number">3</span>) n)</div><div class="line">        ((<span class="name"><span class="builtin-name">=</span></span> n <span class="number">3</span>) (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">*</span></span> <span class="number">3</span> a) (<span class="name"><span class="builtin-name">*</span></span> <span class="number">2</span> b) c))</div><div class="line">        ((<span class="name"><span class="builtin-name">&gt;</span></span> n <span class="number">3</span>) (<span class="name">f-iter</span> b c (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">*</span></span> <span class="number">3</span> a) (<span class="name"><span class="builtin-name">*</span></span> <span class="number">2</span> b) c) (<span class="name"><span class="builtin-name">-</span></span> n <span class="number">1</span>)))))</div></pre></td></tr></table></figure></p>
 <h3 id="练习-1-12"><a href="#练习-1-12" class="headerlink" title="练习 1.12"></a>练习 1.12</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">pt-num</span> n row)</div><div class="line">  (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">or</span></span> (<span class="name"><span class="builtin-name">=</span></span> n <span class="number">1</span>) (<span class="name"><span class="builtin-name">=</span></span> n row) (<span class="name"><span class="builtin-name">=</span></span> row <span class="number">1</span>))</div><div class="line">      <span class="number">1</span></div><div class="line">      (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">pt-num</span> (<span class="name"><span class="builtin-name">-</span></span> n <span class="number">1</span>) (<span class="name"><span class="builtin-name">-</span></span> row <span class="number">1</span>)) (<span class="name">pt-num</span> n (<span class="name"><span class="builtin-name">-</span></span> row <span class="number">1</span>))))</div><div class="line">  )</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">pt</span> n row)</div><div class="line">  (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">&lt;=</span></span> n row)</div><div class="line">      (<span class="name"><span class="builtin-name">begin</span></span></div><div class="line">        (<span class="name"><span class="builtin-name">display</span></span> (<span class="name">pt-num</span> n row))</div><div class="line">        (<span class="name"><span class="builtin-name">display</span></span> <span class="string">" "</span>)</div><div class="line">        (<span class="name">pt</span> (<span class="name"><span class="builtin-name">+</span></span> n <span class="number">1</span>) row))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">pt-construct</span> row)</div><div class="line">  (<span class="name">pt-iter</span> <span class="number">1</span> row))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">pt-iter</span> n row)</div><div class="line">  (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">&lt;=</span></span> n row)</div><div class="line">      (<span class="name"><span class="builtin-name">begin</span></span></div><div class="line">        (<span class="name">pt</span> <span class="number">1</span> n)</div><div class="line">        (<span class="name"><span class="builtin-name">newline</span></span>)</div><div class="line">        (<span class="name">pt-iter</span> (<span class="name"><span class="builtin-name">+</span></span> n <span class="number">1</span>) row))))</div></pre></td></tr></table></figure>
+<h3 id="练习-1-13"><a href="#练习-1-13" class="headerlink" title="练习 1.13"></a>练习 1.13</h3><p>中文版中  \(\Psi = \left (1 - \sqrt{5}\right ) / 2\) 这个提示被吃掉了<br>假设 \(Fib\left ( n \right ) =  \left (\Phi^{n} - \Psi ^{n}\right )/ \sqrt{5}\) 成立<br>\(n = 0\)   \(Fib\left ( n \right ) = 0\)<br>\(n = 1\)   \(Fib\left ( n \right ) = 1\)</p>
+<p>\(Fib\left ( n \right ) = Fib\left ( n-1 \right ) + Fib\left ( n-2 \right )\)<br>\(Fib\left ( n \right ) = \left (\Phi^{n-1} - \Psi ^{n-1}\right )/ \sqrt{5} +  \left (\Phi^{n-2} - \Psi ^{n-2}\right )/ \sqrt{5}\)<br>\(Fib\left ( n \right ) = \Phi^{n-1}/ \sqrt{5} - \Psi ^{n-1}/ \sqrt{5} +  \Phi^{n-2}/\sqrt{5} - \Psi ^{n-2}/\sqrt{5}\)<br>\(Fib\left ( n \right ) = \left (\Phi^{n-1}/ \sqrt{5} +  \Phi^{n-2}/\sqrt{5}  \right ) - \left ( \Psi ^{n-1}/ \sqrt{5}  + \Psi ^{n-2}/\sqrt{5} \right )\)<br>\(Fib\left ( n \right ) = \Phi^{n-2}\left (\Phi  +  1  \right )\sqrt{5} - \Psi ^{n-2}\left ( \Psi  + 1\right )/ \sqrt{5}\)<br>Because \(\Phi^{2} = \Phi  +  1\) and \(\Psi^{2} = \Psi +  1\)<br>So \(Fib\left ( n \right ) = \Phi^{n}/\sqrt{5} - \Psi ^{n}/ \sqrt{5}\)<br>\(Fib\left ( n \right ) = \left ( \Phi^{n} - \Psi ^{n} \right ) / \sqrt{5} \)</p>
+<p>\(Fib\left ( n \right ) +  \Psi ^{n} / \sqrt{5}   =  \Phi^{n} / \sqrt{5}\)<br>n = 1,  \(\Psi ^{n} / \sqrt{5} \) &lt; 1/2, \(\Psi ^{n} / \sqrt{5} \) 随n增加单调递减，总比1/2小<br>So \(Fib\left ( n \right )\) 是最接近 \(\Phi ^{n} / \sqrt{5}\)的整数</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题/" data-id="cj4eb2j2c00043sqwdnn1jt3l" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题/" data-id="cj4fosm8l00021kqwzpoeaipd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sicp/">sicp</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2017-06-01-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/02/2017-06-01-hello-world/" class="article-date">
+  <time datetime="2017-06-02T06:09:53.000Z" itemprop="datePublished">2017-06-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="Jekyll用法"><a href="#Jekyll用法" class="headerlink" title="Jekyll用法"></a>Jekyll用法</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="name">hc-append</span> (<span class="name">circle</span> <span class="number">10</span>) (<span class="name">rectangle</span> <span class="number">20</span> <span class="number">20</span>))</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p><a href="https://jekyllrb.com/docs/home" target="_blank" rel="external">Jekyll docs</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://planan.github.io/2017/06/02/2017-06-01-hello-world/" data-id="cj4fosm8900001kqwo93k6bmp" class="article-share-link">Share</a>
+      
+      
     </footer>
   </div>
   
@@ -171,58 +221,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" data-id="cj4eb2j1d00003sqw5cajf9if" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" data-id="cj4fosm8h00011kqwwkg1hsr4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Erlang/">Erlang</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-06-01-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/02/2017-06-01-hello-world/" class="article-date">
-  <time datetime="2017-06-02T06:09:53.000Z" itemprop="datePublished">2017-06-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<h3 id="Jekyll用法"><a href="#Jekyll用法" class="headerlink" title="Jekyll用法"></a>Jekyll用法</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="name">hc-append</span> (<span class="name">circle</span> <span class="number">10</span>) (<span class="name">rectangle</span> <span class="number">20</span> <span class="number">20</span>))</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<p><a href="https://jekyllrb.com/docs/home" target="_blank" rel="external">Jekyll docs</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/02/2017-06-01-hello-world/" data-id="cj4eb2j1l00013sqw8d0vfk9h" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -278,11 +281,11 @@
           </li>
         
           <li>
-            <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/">Erlang常见报错和调试方法</a>
+            <a href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
+            <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/">Erlang常见报错和调试方法</a>
           </li>
         
       </ul>
