@@ -126,12 +126,12 @@
 <p>5)计算N(n, 5)<br>同理可得, N(n, 5)增长的阶为 \(\theta \left ( n^{5} \right )\)</p>
 <h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><p>1)随着现金量的增加，count-change过程计算步数增长的阶为\(\theta \left ( n^{5} \right )\)<br>2)空间复杂度则为\(\theta \left ( n \right )\), 这是由递归展开的性质决定的</p>
 <h3 id="练习-1-15"><a href="#练习-1-15" class="headerlink" title="练习 1.15"></a>练习 1.15</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">cube</span> x) (<span class="name"><span class="builtin-name">*</span></span> x x x))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">p</span> x) (<span class="name"><span class="builtin-name">-</span></span> (<span class="name"><span class="builtin-name">*</span></span> <span class="number">3</span> x) (<span class="name"><span class="builtin-name">*</span></span> <span class="number">4</span> (<span class="name">cube</span> x))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">sine</span> angle)</div><div class="line">  (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">not</span></span> ( &gt; (<span class="name"><span class="builtin-name">abs</span></span> angle) <span class="number">0.1</span>))</div><div class="line">      angle</div><div class="line">      (<span class="name">p</span> (<span class="name">sine</span> (<span class="name"><span class="builtin-name">/</span></span> angle <span class="number">3.0</span>)))))</div></pre></td></tr></table></figure>
-<h5 id="解答"><a href="#解答" class="headerlink" title="解答:"></a>解答:</h5><p>a) 计算弧度12.15的sin值, p将被调用5次<br>b) 当\(0.1\cdot3^{n} &gt; a \) 时，计算完毕，因此步数为\(\log_{3}10a + 1\),空间和展开次数（也就是步数一直）,所以空间和步数增长的阶为\(\theta \left ( \log_{3} n \right )\)</p>
+<h5 id="解答"><a href="#解答" class="headerlink" title="解答:"></a>解答:</h5><p>a) 计算弧度12.15的sin值, p将被调用5次<br>b) 当\(0.1\cdot3^{n} &gt; a \) 时，计算完毕，因此步数为\(\log_{3}10a + 1\),空间和展开次数（也就是步数一直）,所以空间和步数增长的阶为\(\theta \left ( \log n \right )\)</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题/" data-id="cj4h3yj300002ooqwjzue5nn1" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题/" data-id="cj4h7p6el0002ygqwswapy49u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sicp/">sicp</a></li></ul>
@@ -180,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/02/2017-06-01-hello-world/" data-id="cj4h3yj1k0000ooqw9rp8iie5" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/02/2017-06-01-hello-world/" data-id="cj4h7p6eb0000ygqwbqyh4gg7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -230,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" data-id="cj4h3yj2y0001ooqw8io1n7er" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" data-id="cj4h7p6ei0001ygqwxnrw8rs8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Erlang/">Erlang</a></li></ul>
