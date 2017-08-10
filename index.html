@@ -92,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/07/11/2017-07-11-python脚本知识点/" data-id="cj657ys8i0003a0qw2l57cblf" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/07/11/2017-07-11-python脚本知识点/" data-id="cj66np45v000150qwwabfmbn9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -239,11 +239,13 @@
 <p>运行结果：<br>>((compose square inc) 6)<br>49</p>
 <p>练习 1.43<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">square</span> x) (<span class="name"><span class="builtin-name">*</span></span> x x))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">compose</span> f g)</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (x) (<span class="name">f</span> (<span class="name">g</span> x))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">repeated</span> f times)</div><div class="line">    (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">&gt;</span></span> times <span class="number">0</span>)</div><div class="line">        (<span class="name">compose</span> f (<span class="name">repeated</span> f (<span class="name"><span class="builtin-name">-</span></span> times <span class="number">1</span>)))</div><div class="line">        (<span class="name"><span class="builtin-name">lambda</span></span> (x) x)))</div></pre></td></tr></table></figure></p>
 <p>运行结果：<br>>((repeated square 2) 5)<br>625</p>
+<p>练习 1.44<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> dx <span class="number">0.00001</span>)</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">compose</span> f g)</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (x) (<span class="name">f</span> (<span class="name">g</span> x))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">repeated</span> f times)</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">repeated-iter</span> times result)</div><div class="line">    (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">=</span></span> times <span class="number">1</span>)</div><div class="line">        result</div><div class="line">        (<span class="name">repeated-iter</span> (<span class="name"><span class="builtin-name">-</span></span> times <span class="number">1</span>) (<span class="name">compose</span> f result))))</div><div class="line">    (<span class="name">repeated-iter</span> times f))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">tri-average</span> x y z) (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> x y z) <span class="number">3</span>))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">smooth</span> f)</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (x) (<span class="name">tri-average</span> (<span class="name">f</span> (<span class="name"><span class="builtin-name">-</span></span> x dx)) (<span class="name">f</span> x) (<span class="name">f</span> (<span class="name"><span class="builtin-name">+</span></span> x dx)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">repeated-smooth</span> f n)</div><div class="line">  ((<span class="name">repeated</span> smooth n) f))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">impulse-maker</span> a y)</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (x)</div><div class="line">    (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">=</span></span> x a)</div><div class="line">        y</div><div class="line">        <span class="number">0</span>)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> my-impulse-function</div><div class="line">  (<span class="name">impulse-maker</span> <span class="number">0</span> <span class="number">6</span>))</div></pre></td></tr></table></figure></p>
+<p>运行结果：<br>> (exact-&gt;inexact ((repeated-smooth my-impulse-function 2) 0))<br>2.0<br>> (exact-&gt;inexact ((repeated-smooth my-impulse-function 3) 0))<br>1.5555555555555556<br>> (exact-&gt;inexact ((repeated-smooth my-impulse-function 4) 0))<br>1.4074074074074074<br>> (exact-&gt;inexact ((repeated-smooth my-impulse-function 5) 0))<br>1.2592592592592593</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题/" data-id="cj657ys850000a0qwifb2kxi9" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题/" data-id="cj66np45o000050qw12o8x895" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sicp/">sicp</a></li></ul>
@@ -295,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" data-id="cj657ys8y0006a0qwe9c8kb8o" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" data-id="cj66np464000350qw2z8wt1pz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Erlang/">Erlang</a></li></ul>
@@ -344,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/02/2017-06-01-hello-world/" data-id="cj657ys9m0009a0qw8y7eh6je" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/02/2017-06-01-hello-world/" data-id="cj66np479000950qw8m3oqrw7" class="article-share-link">Share</a>
       
       
     </footer>
