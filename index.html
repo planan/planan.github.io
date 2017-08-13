@@ -92,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/07/11/2017-07-11-python脚本知识点/" data-id="cj66np45v000150qwwabfmbn9" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/07/11/2017-07-11-python脚本知识点/" data-id="cj6arcmh100010cqwwd9rvao0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -241,15 +241,67 @@
 <p>运行结果：<br>>((repeated square 2) 5)<br>625</p>
 <p>练习 1.44<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> dx <span class="number">0.00001</span>)</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">compose</span> f g)</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (x) (<span class="name">f</span> (<span class="name">g</span> x))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">repeated</span> f times)</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">repeated-iter</span> times result)</div><div class="line">    (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">=</span></span> times <span class="number">1</span>)</div><div class="line">        result</div><div class="line">        (<span class="name">repeated-iter</span> (<span class="name"><span class="builtin-name">-</span></span> times <span class="number">1</span>) (<span class="name">compose</span> f result))))</div><div class="line">    (<span class="name">repeated-iter</span> times f))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">tri-average</span> x y z) (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> x y z) <span class="number">3</span>))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">smooth</span> f)</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (x) (<span class="name">tri-average</span> (<span class="name">f</span> (<span class="name"><span class="builtin-name">-</span></span> x dx)) (<span class="name">f</span> x) (<span class="name">f</span> (<span class="name"><span class="builtin-name">+</span></span> x dx)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">repeated-smooth</span> f n)</div><div class="line">  ((<span class="name">repeated</span> smooth n) f))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">impulse-maker</span> a y)</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (x)</div><div class="line">    (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">=</span></span> x a)</div><div class="line">        y</div><div class="line">        <span class="number">0</span>)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> my-impulse-function</div><div class="line">  (<span class="name">impulse-maker</span> <span class="number">0</span> <span class="number">6</span>))</div></pre></td></tr></table></figure></p>
 <p>运行结果：<br>> (exact-&gt;inexact ((repeated-smooth my-impulse-function 2) 0))<br>2.0<br>> (exact-&gt;inexact ((repeated-smooth my-impulse-function 3) 0))<br>1.5555555555555556<br>> (exact-&gt;inexact ((repeated-smooth my-impulse-function 4) 0))<br>1.4074074074074074<br>> (exact-&gt;inexact ((repeated-smooth my-impulse-function 5) 0))<br>1.2592592592592593</p>
+<p>练习 1.45<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">square</span> x) (<span class="name"><span class="builtin-name">*</span></span> x x))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">even?</span></span> x)</div><div class="line">  (<span class="name"><span class="builtin-name">=</span></span> (<span class="name"><span class="builtin-name">remainder</span></span> x <span class="number">2</span>) <span class="number">0</span>))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">close-enouth?</span> x y)</div><div class="line">  (<span class="name"><span class="builtin-name">&lt;</span></span> (<span class="name"><span class="builtin-name">abs</span></span> (<span class="name"><span class="builtin-name">-</span></span> x y)) <span class="number">0.001</span>))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">average</span> x y) (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> x y) <span class="number">2</span>))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> tolerance <span class="number">0.00001</span>)</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">fixed-point</span> f first-guess)</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">close-enouth?</span> v1 v2)</div><div class="line">    (<span class="name"><span class="builtin-name">&lt;</span></span> (<span class="name"><span class="builtin-name">abs</span></span> (<span class="name"><span class="builtin-name">-</span></span> v1 v2)) tolerance))</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">try</span> guess)</div><div class="line">    (<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">next</span> (<span class="name">f</span> guess)))</div><div class="line">      (<span class="name"><span class="builtin-name">display</span></span> next)</div><div class="line">      (<span class="name"><span class="builtin-name">newline</span></span>)</div><div class="line">      (<span class="name"><span class="builtin-name">if</span></span> (<span class="name">close-enouth?</span> guess next)</div><div class="line">          next</div><div class="line">          (<span class="name">try</span> next))))</div><div class="line">  (<span class="name">try</span> first-guess))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">average-damp</span> f)</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (x) (<span class="name">average</span> x (<span class="name">f</span> x))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">compose</span> f g)</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (x) (<span class="name">f</span> (<span class="name">g</span> x))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">repeated</span> f times)</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">repeated-iter</span> times result)</div><div class="line">    (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">=</span></span> times <span class="number">1</span>)</div><div class="line">        result</div><div class="line">        (<span class="name">repeated-iter</span> (<span class="name"><span class="builtin-name">-</span></span> times <span class="number">1</span>) (<span class="name">compose</span> f result))))</div><div class="line">    (<span class="name">repeated-iter</span> times f))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">fixed-point-of-transform</span> g transform guess)</div><div class="line">  (<span class="name">fixed-point</span> (<span class="name">transform</span> g) guess))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">mod</span> x exp)</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">mod-iter</span> x exp product)</div><div class="line">    (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">=</span></span> exp <span class="number">0</span>) product)</div><div class="line">          ((<span class="name"><span class="builtin-name">even?</span></span> exp) (<span class="name">mod-iter</span> (<span class="name">square</span> x) (<span class="name"><span class="builtin-name">/</span></span> exp <span class="number">2</span>) product))</div><div class="line">          (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">mod-iter</span> x (<span class="name"><span class="builtin-name">-</span></span> exp <span class="number">1</span>) (<span class="name"><span class="builtin-name">*</span></span> x product)))))</div><div class="line">  (<span class="name">mod-iter</span> x exp <span class="number">1</span>))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">count-exp-of-2</span> num)</div><div class="line">  (<span class="name"><span class="builtin-name">inexact-&gt;exact</span></span> (<span class="name"><span class="builtin-name">floor</span></span> (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">log</span></span> num) (<span class="name"><span class="builtin-name">log</span></span> <span class="number">2</span>)))))</div><div class="line"></div><div class="line"><span class="comment">;(define (floor-log2 n)</span></div><div class="line"><span class="comment">;  (define (iter m count)</span></div><div class="line"><span class="comment">;    (if (= m 0)</span></div><div class="line"><span class="comment">;        (- count 1)</span></div><div class="line"><span class="comment">;        (iter (arithmetic-shift m -1) (inc count))))</span></div><div class="line"><span class="comment">;  (iter n 0))</span></div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">nth-root</span> exp x)</div><div class="line">  (<span class="name">fixed-point-of-transform</span> (<span class="name"><span class="builtin-name">lambda</span></span> (y) (<span class="name"><span class="builtin-name">/</span></span> x (<span class="name">mod</span> y (<span class="name"><span class="builtin-name">-</span></span> exp <span class="number">1</span>))))</div><div class="line">                            (<span class="name">repeated</span> average-damp (<span class="name">count-exp-of-2</span> exp))</div><div class="line">                            <span class="number">1.0</span>))</div></pre></td></tr></table></figure></p>
+<p>方法：列表验证，求不同次方根需要的平均阻尼次数<br>规律：n是以2为底的对数取整，为需要平均阻尼的次数。<br>运行结果：<br>> (nth-root 64 9)<br>1.125<br>1.107506102443933<br>1.0904273966434088<br>1.0739912891073764<br>1.0587769794029933<br>1.0460828705226157<br>1.0379678065348177<br>1.0351919919870518<br>1.0349298803213305<br>1.0349277672157835<br>1.0349277672157835<br>> (mod 1.0349277672157835 64)<br>9.000000075647126</p>
+<h3 id="练习-1-46"><a href="#练习-1-46" class="headerlink" title="练习 1.46"></a>练习 1.46</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">iterative-improve</span> good-enough? improve-method)</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">improve-iter</span> guess)</div><div class="line">      (<span class="name"><span class="builtin-name">if</span></span> (<span class="name">good-enough?</span> guess)</div><div class="line">          guess</div><div class="line">          (<span class="name">improve-iter</span> (<span class="name">improve-method</span> guess))))</div><div class="line">  (<span class="name"><span class="builtin-name">lambda</span></span> (guess) (<span class="name">improve-iter</span> guess)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">square</span> x) (<span class="name"><span class="builtin-name">*</span></span> x x))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">average</span> x y)</div><div class="line">  (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> x y) <span class="number">2</span>))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">sqrt</span></span> x)</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">good-enouth?</span> guess)</div><div class="line">    (<span class="name"><span class="builtin-name">&lt;</span></span> (<span class="name"><span class="builtin-name">abs</span></span> (<span class="name"><span class="builtin-name">-</span></span> (<span class="name">square</span> guess) x )) <span class="number">0.0000001</span>))</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">improve-method</span> guess)</div><div class="line">    (<span class="name">average</span> guess (<span class="name"><span class="builtin-name">/</span></span> x guess)))</div><div class="line">  ((<span class="name">iterative-improve</span> good-enouth? improve-method)</div><div class="line">   <span class="number">1.0</span>))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> tolerance <span class="number">0.00001</span>)</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">fixed-point</span> f first-guess)</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">close-enough?</span> guess)</div><div class="line">    (<span class="name"><span class="builtin-name">&lt;</span></span> (<span class="name"><span class="builtin-name">abs</span></span> (<span class="name"><span class="builtin-name">-</span></span> guess (<span class="name">f</span> guess))) tolerance))</div><div class="line">  (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">improve-method</span> guess)</div><div class="line">    (<span class="name">f</span> guess))</div><div class="line">  ((<span class="name">iterative-improve</span> close-enough? improve-method)</div><div class="line">   first-guess))</div></pre></td></tr></table></figure>
+<p>运行结果：<br>>(fixed-point (lambda (y) (+ (sin y) (cos y))) 1.0)<br>1.2587228743052672</p>
+<p>>(sqrt 3.0)<br>1.7320508100147274</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题/" data-id="cj66np45o000050qw12o8x895" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题/" data-id="cj6arcmgr00000cqwk09olh16" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sicp/">sicp</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2017-06-01-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/02/2017-06-01-hello-world/" class="article-date">
+  <time datetime="2017-06-02T06:09:53.000Z" itemprop="datePublished">2017-06-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="Jekyll用法"><a href="#Jekyll用法" class="headerlink" title="Jekyll用法"></a>Jekyll用法</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="name">hc-append</span> (<span class="name">circle</span> <span class="number">10</span>) (<span class="name">rectangle</span> <span class="number">20</span> <span class="number">20</span>))</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p><a href="https://jekyllrb.com/docs/home" target="_blank" rel="external">Jekyll docs</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://planan.github.io/2017/06/02/2017-06-01-hello-world/" data-id="cj6arcmhr00060cqwxsfhnyim" class="article-share-link">Share</a>
+      
+      
     </footer>
   </div>
   
@@ -297,58 +349,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" data-id="cj66np464000350qw2z8wt1pz" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" data-id="cj6arcmhv00070cqwpgbb2orb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Erlang/">Erlang</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-06-01-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/02/2017-06-01-hello-world/" class="article-date">
-  <time datetime="2017-06-02T06:09:53.000Z" itemprop="datePublished">2017-06-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<h3 id="Jekyll用法"><a href="#Jekyll用法" class="headerlink" title="Jekyll用法"></a>Jekyll用法</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="name">hc-append</span> (<span class="name">circle</span> <span class="number">10</span>) (<span class="name">rectangle</span> <span class="number">20</span> <span class="number">20</span>))</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<p><a href="https://jekyllrb.com/docs/home" target="_blank" rel="external">Jekyll docs</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/02/2017-06-01-hello-world/" data-id="cj66np479000950qw8m3oqrw7" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -408,11 +413,11 @@
           </li>
         
           <li>
-            <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/">Erlang常见报错和调试方法</a>
+            <a href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
+            <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/">Erlang常见报错和调试方法</a>
           </li>
         
       </ul>
