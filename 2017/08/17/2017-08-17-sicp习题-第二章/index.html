@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>sicpϰ��-�ڶ��� | Jester&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="��ϰ2.1123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354(define (add-rat x y)  (make-rat (+ (* (numer x) (denom y))               (* (numer y) (denom x">
+<meta name="keywords" content="sicp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sicpϰ��-�ڶ���">
+<meta property="og:url" content="https://planan.github.io/2017/08/17/2017-08-17-sicp习题-第二章/index.html">
+<meta property="og:site_name" content="Jester&#39;s Blog">
+<meta property="og:description" content="��ϰ2.1123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354(define (add-rat x y)  (make-rat (+ (* (numer x) (denom y))               (* (numer y) (denom x">
+<meta property="og:updated_time" content="2017-08-17T15:38:30.309Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sicpϰ��-�ڶ���">
+<meta name="twitter:description" content="��ϰ2.1123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354(define (add-rat x y)  (make-rat (+ (* (numer x) (denom y))               (* (numer y) (denom x">
+  
+    <link rel="alternate" href="/atom.xml" title="Jester&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jester&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://planan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-08-17-sicp习题-第二章" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/17/2017-08-17-sicp习题-第二章/" class="article-date">
+  <time datetime="2017-08-17T10:01:37.000Z" itemprop="datePublished">2017-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sicpϰ��-�ڶ���
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="��ϰ2-1"><a href="#��ϰ2-1" class="headerlink" title="��ϰ2.1"></a>��ϰ2.1</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add-rat</span> x y)</div><div class="line">  (<span class="name">make-rat</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> x) (<span class="name">denom</span> y))</div><div class="line">               (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> y) (<span class="name">denom</span> x)))</div><div class="line">            (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">denom</span> x) (<span class="name">denom</span> y))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">sub-rat</span> x y)</div><div class="line">  (<span class="name">make-rat</span> (<span class="name"><span class="builtin-name">-</span></span> (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> x) (<span class="name">denom</span> y))</div><div class="line">               (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> y) (<span class="name">denom</span> x)))</div><div class="line">            (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">denom</span> x) (<span class="name">denom</span> y))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">mul-rat</span> x y)</div><div class="line">  (<span class="name">make-rat</span> (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> x) (<span class="name">numer</span> y))</div><div class="line">            (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">denom</span> x) (<span class="name">denom</span> y))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">div-rat</span> x y)</div><div class="line">  (<span class="name">make-rat</span> (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> x) (<span class="name">denom</span> y))</div><div class="line">            (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">demon</span> x) (<span class="name">numer</span> y))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">equal-rat?</span> x y)</div><div class="line">  (<span class="name"><span class="builtin-name">=</span></span> (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> x) (<span class="name">denom</span> y))</div><div class="line">     (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> y) (<span class="name">denom</span> x))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">gcd</span></span> x y)</div><div class="line">  (<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">r</span> (<span class="name"><span class="builtin-name">remainder</span></span> x y)))</div><div class="line">  (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">=</span></span> r <span class="number">0</span>)</div><div class="line">      y</div><div class="line">      (<span class="name"><span class="builtin-name">gcd</span></span> y r))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">abs</span></span> x)</div><div class="line">  (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">&gt;=</span></span> x <span class="number">0</span>)</div><div class="line">      x</div><div class="line">      (<span class="name"><span class="builtin-name">-</span></span> x)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-rat</span> n d)</div><div class="line">  (<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">g</span> (<span class="name"><span class="builtin-name">abs</span></span> (<span class="name"><span class="builtin-name">gcd</span></span> n d))))</div><div class="line">   (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">and</span></span> (<span class="name"><span class="builtin-name">&lt;</span></span> n <span class="number">0</span>) (<span class="name"><span class="builtin-name">&lt;</span></span> d <span class="number">0</span>))</div><div class="line">          (<span class="name"><span class="builtin-name">cons</span></span> (<span class="name"><span class="builtin-name">-</span></span> (<span class="name"><span class="builtin-name">/</span></span> n g)) (<span class="name"><span class="builtin-name">-</span></span> (<span class="name"><span class="builtin-name">/</span></span> d g))))</div><div class="line">         ((<span class="name"><span class="builtin-name">and</span></span> (<span class="name"><span class="builtin-name">&lt;</span></span> n <span class="number">0</span>) (<span class="name"><span class="builtin-name">&gt;</span></span> d <span class="number">0</span>))</div><div class="line">          (<span class="name"><span class="builtin-name">cons</span></span> (<span class="name"><span class="builtin-name">/</span></span> n g) (<span class="name"><span class="builtin-name">/</span></span> d g)))</div><div class="line">         ((<span class="name"><span class="builtin-name">and</span></span> (<span class="name"><span class="builtin-name">&gt;</span></span> n <span class="number">0</span>) (<span class="name"><span class="builtin-name">&lt;</span></span> d <span class="number">0</span>))</div><div class="line">          (<span class="name"><span class="builtin-name">cons</span></span> (<span class="name"><span class="builtin-name">-</span></span> (<span class="name"><span class="builtin-name">/</span></span> n g)) (<span class="name"><span class="builtin-name">-</span></span> (<span class="name"><span class="builtin-name">/</span></span> d g))))</div><div class="line">         ((<span class="name"><span class="builtin-name">and</span></span> (<span class="name"><span class="builtin-name">&gt;</span></span> n <span class="number">0</span>) (<span class="name"><span class="builtin-name">&gt;</span></span> d <span class="number">0</span>))</div><div class="line">          (<span class="name"><span class="builtin-name">cons</span></span> (<span class="name"><span class="builtin-name">/</span></span> n g) (<span class="name"><span class="builtin-name">/</span></span> d g)))))</div><div class="line">  )</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">numer</span> x) (<span class="name"><span class="builtin-name">car</span></span> x))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">denom</span> x) (<span class="name"><span class="builtin-name">cdr</span></span> x))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">print-rat</span> x)</div><div class="line">  (<span class="name"><span class="builtin-name">newline</span></span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> (<span class="name">numer</span> x))</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">"/"</span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> (<span class="name">denom</span> x)))</div></pre></td></tr></table></figure>
+<h3 id="��ϰ2-2"><a href="#��ϰ2-2" class="headerlink" title="��ϰ2.2"></a>��ϰ2.2</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-point</span> x y)</div><div class="line">  (<span class="name"><span class="builtin-name">cons</span></span> x y))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">x-point</span> point)</div><div class="line">  (<span class="name"><span class="builtin-name">car</span></span> point))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">y-point</span> point)</div><div class="line">  (<span class="name"><span class="builtin-name">cdr</span></span> point))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">mid-point</span> start-point end-point)</div><div class="line">  (<span class="name">make-point</span></div><div class="line">   (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">x-point</span> start-point) (<span class="name">x-point</span> end-point)) <span class="number">2</span>)</div><div class="line">   (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">y-point</span> start-point) (<span class="name">y-point</span> end-point)) <span class="number">2</span>)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-segment</span> start-point end-point)</div><div class="line">  (<span class="name"><span class="builtin-name">cons</span></span> start-point end-point))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">start-segment</span> segment)</div><div class="line">  (<span class="name"><span class="builtin-name">car</span></span> segment))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">end-segment</span> segment)</div><div class="line">  (<span class="name"><span class="builtin-name">cdr</span></span> segment))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">midpoint-segment</span> segment)</div><div class="line">  (<span class="name">mid-point</span> (<span class="name">start-segment</span> segment) (<span class="name">end-segment</span> segment)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">print-point</span> p)</div><div class="line">  (<span class="name"><span class="builtin-name">newline</span></span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">"("</span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> (<span class="name">x-point</span> p))</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">","</span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> (<span class="name">y-point</span> p))</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">")"</span>))</div></pre></td></tr></table></figure>
+<h3 id="��ϰ2-3"><a href="#��ϰ2-3" class="headerlink" title="��ϰ2.3"></a>��ϰ2.3</h3><p>Version1:add type to determine which method to use<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-point</span> x y)</div><div class="line">  (<span class="name"><span class="builtin-name">cons</span></span> x y))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">x-point</span> point)</div><div class="line">  (<span class="name"><span class="builtin-name">car</span></span> point))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">y-point</span> point)</div><div class="line">  (<span class="name"><span class="builtin-name">cdr</span></span> point))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">mid-point</span> start-point end-point)</div><div class="line">  (<span class="name">make-point</span></div><div class="line">   (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">x-point</span> start-point) (<span class="name">x-point</span> end-point)) <span class="number">2</span>)</div><div class="line">   (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">y-point</span> start-point) (<span class="name">y-point</span> end-point)) <span class="number">2</span>)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-segment</span> start-point end-point)</div><div class="line">  (<span class="name"><span class="builtin-name">cons</span></span> start-point end-point))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">start-segment</span> segment)</div><div class="line">  (<span class="name"><span class="builtin-name">car</span></span> segment))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">end-segment</span> segment)</div><div class="line">  (<span class="name"><span class="builtin-name">cdr</span></span> segment))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">midpoint-segment</span> segment)</div><div class="line">  (<span class="name">mid-point</span> (<span class="name">start-segment</span> segment) (<span class="name">end-segment</span> segment)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">print-point</span> p)</div><div class="line">  (<span class="name"><span class="builtin-name">newline</span></span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">"("</span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> (<span class="name">x-point</span> p))</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">","</span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> (<span class="name">y-point</span> p))</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">")"</span>))</div><div class="line"></div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> start-p (<span class="name">make-point</span> <span class="number">2</span> <span class="number">2</span>))</div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> end-p (<span class="name">make-point</span> <span class="number">6</span> <span class="number">8</span>))</div><div class="line"><span class="comment">; (define seg (make-segment start-p end-p))</span></div><div class="line"><span class="comment">; (print-point (midpoint-segment seg))</span></div><div class="line"></div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">abs</span></span> x)</div><div class="line">   (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">&gt;=</span></span> x <span class="number">0</span>)</div><div class="line">       x</div><div class="line">       (<span class="name"><span class="builtin-name">-</span></span> x)))</div><div class="line"> </div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-size</span> height width)</div><div class="line">   (<span class="name"><span class="builtin-name">cons</span></span> height width))</div><div class="line"></div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">height</span> size)</div><div class="line">   (<span class="name"><span class="builtin-name">car</span></span> size))</div><div class="line"></div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">width</span> size)</div><div class="line">   (<span class="name"><span class="builtin-name">cdr</span></span> size))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">lefttop-point</span> rectangle)</div><div class="line">   (<span class="name"><span class="builtin-name">car</span></span> rectangle))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">size</span> rectangle)</div><div class="line">   (<span class="name"><span class="builtin-name">cdr</span></span> rectangle))</div><div class="line"> </div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">rectangle</span> type lefttop-point sizeorpoint)</div><div class="line">  (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> type <span class="string">"size"</span>)</div><div class="line">         (<span class="name"><span class="builtin-name">cons</span></span> <span class="string">"size"</span> (<span class="name"><span class="builtin-name">cons</span></span> lefttop-point sizeorpoint)))</div><div class="line">        ((<span class="name"><span class="builtin-name">eq?</span></span> type <span class="string">"point"</span>)</div><div class="line">         (<span class="name"><span class="builtin-name">cons</span></span> <span class="string">"point"</span> (<span class="name"><span class="builtin-name">cons</span></span> lefttop-point sizeorpoint)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">lefttop-point</span> rectangle)</div><div class="line">  (<span class="name"><span class="builtin-name">car</span></span> rectangle))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">rightbottom-point</span> rectangle)</div><div class="line">   (<span class="name"><span class="builtin-name">cdr</span></span> rectangle))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">height-length</span> rectangle)</div><div class="line">  (<span class="name"><span class="builtin-name">abs</span></span> (<span class="name"><span class="builtin-name">-</span></span> (<span class="name">y-point</span> (<span class="name">lefttop-point</span> rectangle)) (<span class="name">y-point</span> (<span class="name">rightbottom-point</span> rectangle)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">width-length</span> rectangle)</div><div class="line">  (<span class="name"><span class="builtin-name">abs</span></span> (<span class="name"><span class="builtin-name">-</span></span> (<span class="name">x-point</span> (<span class="name">lefttop-point</span> rectangle)) (<span class="name">x-point</span> (<span class="name">rightbottom-point</span> rectangle)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">perimeter-size</span> data)</div><div class="line">  (<span class="name"><span class="builtin-name">*</span></span> <span class="number">2</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">height</span> (<span class="name">size</span> data)) (<span class="name">width</span> (<span class="name">size</span> data)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">perimeter-point</span> data)</div><div class="line">  (<span class="name"><span class="builtin-name">*</span></span> <span class="number">2</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">height-length</span> data)</div><div class="line">                   (<span class="name">width-length</span> data))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">perimeter</span> rectangle)</div><div class="line">  (<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">type</span> (<span class="name"><span class="builtin-name">car</span></span> rectangle))</div><div class="line">        (<span class="name">data</span> (<span class="name"><span class="builtin-name">cdr</span></span> rectangle)))</div><div class="line">    (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> type <span class="string">"size"</span>)</div><div class="line">           (<span class="name">perimeter-size</span> data))</div><div class="line">          ((<span class="name"><span class="builtin-name">eq?</span></span> type <span class="string">"point"</span>)</div><div class="line">           (<span class="name">perimeter-point</span> data)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">area-size</span> data)</div><div class="line">  (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">height</span> (<span class="name">size</span> data)) (<span class="name">width</span> (<span class="name">size</span> data))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">area-point</span> data)</div><div class="line">  (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">height-length</span> data) (<span class="name">width-length</span> data)))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">area</span> rectangle)</div><div class="line">   (<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">type</span> (<span class="name"><span class="builtin-name">car</span></span> rectangle))</div><div class="line">        (<span class="name">data</span> (<span class="name"><span class="builtin-name">cdr</span></span> rectangle)))</div><div class="line">     (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> type <span class="string">"size"</span>)</div><div class="line">            (<span class="name">area-size</span> data))</div><div class="line">           ((<span class="name"><span class="builtin-name">eq?</span></span> type <span class="string">"point"</span>)</div><div class="line">           (<span class="name">area-point</span> data)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> rect1 (<span class="name">rectangle</span> <span class="string">"size"</span> start-p (<span class="name">make-size</span> <span class="number">4</span> <span class="number">5</span>)))</div><div class="line">(<span class="name"><span class="builtin-name">display</span></span> <span class="string">"perimeter of rect1:"</span>)</div><div class="line">(<span class="name">perimeter</span> rect1)</div><div class="line">(<span class="name"><span class="builtin-name">display</span></span> <span class="string">"area of rect1:"</span>)</div><div class="line">(<span class="name">area</span> rect1)</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> rect2 (<span class="name">rectangle</span> <span class="string">"point"</span> start-p end-p))</div><div class="line">(<span class="name"><span class="builtin-name">display</span></span> <span class="string">"perimeter of rect2:"</span>)</div><div class="line">(<span class="name">perimeter</span> rect2)</div><div class="line">(<span class="name"><span class="builtin-name">display</span></span> <span class="string">"area of rect2:"</span>)</div><div class="line">(<span class="name">area</span> rect2)</div></pre></td></tr></table></figure></p>
+<p>Version2:when init rectangle, transfomr into uniform rectangle data type<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-point</span> x y)</div><div class="line">  (<span class="name"><span class="builtin-name">cons</span></span> x y))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">x-point</span> point)</div><div class="line">  (<span class="name"><span class="builtin-name">car</span></span> point))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">y-point</span> point)</div><div class="line">  (<span class="name"><span class="builtin-name">cdr</span></span> point))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">mid-point</span> start-point end-point)</div><div class="line">  (<span class="name">make-point</span></div><div class="line">   (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">x-point</span> start-point) (<span class="name">x-point</span> end-point)) <span class="number">2</span>)</div><div class="line">   (<span class="name"><span class="builtin-name">/</span></span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">y-point</span> start-point) (<span class="name">y-point</span> end-point)) <span class="number">2</span>)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-segment</span> start-point end-point)</div><div class="line">  (<span class="name"><span class="builtin-name">cons</span></span> start-point end-point))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">start-segment</span> segment)</div><div class="line">  (<span class="name"><span class="builtin-name">car</span></span> segment))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">end-segment</span> segment)</div><div class="line">  (<span class="name"><span class="builtin-name">cdr</span></span> segment))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">midpoint-segment</span> segment)</div><div class="line">  (<span class="name">mid-point</span> (<span class="name">start-segment</span> segment) (<span class="name">end-segment</span> segment)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">print-point</span> p)</div><div class="line">  (<span class="name"><span class="builtin-name">newline</span></span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">"("</span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> (<span class="name">x-point</span> p))</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">","</span>)</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> (<span class="name">y-point</span> p))</div><div class="line">  (<span class="name"><span class="builtin-name">display</span></span> <span class="string">")"</span>))</div><div class="line"></div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> start-p (<span class="name">make-point</span> <span class="number">2</span> <span class="number">2</span>))</div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> end-p (<span class="name">make-point</span> <span class="number">6</span> <span class="number">8</span>))</div><div class="line"><span class="comment">; (define seg (make-segment start-p end-p))</span></div><div class="line"><span class="comment">; (print-point (midpoint-segment seg))</span></div><div class="line"></div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">abs</span></span> x)</div><div class="line">   (<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">&gt;=</span></span> x <span class="number">0</span>)</div><div class="line">       x</div><div class="line">       (<span class="name"><span class="builtin-name">-</span></span> x)))</div><div class="line"> </div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-size</span> height width)</div><div class="line">   (<span class="name"><span class="builtin-name">cons</span></span> height width))</div><div class="line"></div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">height</span> size)</div><div class="line">   (<span class="name"><span class="builtin-name">car</span></span> size))</div><div class="line"></div><div class="line"> (<span class="name"><span class="builtin-name">define</span></span> (<span class="name">width</span> size)</div><div class="line">   (<span class="name"><span class="builtin-name">cdr</span></span> size))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">size</span> rectangle)</div><div class="line">   (<span class="name"><span class="builtin-name">cdr</span></span> rectangle))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">point2size</span> lefttop-point rightbottom-point)</div><div class="line">  (<span class="name">make-size</span> (<span class="name"><span class="builtin-name">abs</span></span> (<span class="name"><span class="builtin-name">-</span></span> (<span class="name">y-point</span> lefttop-point) (<span class="name">y-point</span> rightbottom-point)))</div><div class="line">             (<span class="name"><span class="builtin-name">abs</span></span> (<span class="name"><span class="builtin-name">-</span></span> (<span class="name">x-point</span> lefttop-point) (<span class="name">x-point</span> rightbottom-point)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">rectangle</span> type lefttop-point sizeorpoint)</div><div class="line">  (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> type <span class="string">"size"</span>)</div><div class="line">         (<span class="name"><span class="builtin-name">cons</span></span> lefttop-point sizeorpoint))</div><div class="line">        ((<span class="name"><span class="builtin-name">eq?</span></span> type <span class="string">"point"</span>)</div><div class="line">         (<span class="name"><span class="builtin-name">cons</span></span> lefttop-point (<span class="name">point2size</span> lefttop-point sizeorpoint)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">perimeter</span> rectangle)</div><div class="line">  (<span class="name"><span class="builtin-name">*</span></span> <span class="number">2</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name">height</span> (<span class="name">size</span> rectangle)) (<span class="name">width</span> (<span class="name">size</span> rectangle)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">area</span> rectangle)</div><div class="line">  (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">height</span> (<span class="name">size</span> rectangle)) (<span class="name">width</span> (<span class="name">size</span> rectangle))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> rect1 (<span class="name">rectangle</span> <span class="string">"size"</span> start-p (<span class="name">make-size</span> <span class="number">4</span> <span class="number">5</span>)))</div><div class="line">(<span class="name"><span class="builtin-name">display</span></span> <span class="string">"perimeter of rect1:"</span>)</div><div class="line">(<span class="name">perimeter</span> rect1)</div><div class="line">(<span class="name"><span class="builtin-name">display</span></span> <span class="string">"area of rect1:"</span>)</div><div class="line">(<span class="name">area</span> rect1)</div></pre></td></tr></table></figure></p>
+<p>���н�����<br>perimeter of rect1:18<br>area of rect1:20<br>perimeter of rect2:20<br>area of rect2:24</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://planan.github.io/2017/08/17/2017-08-17-sicp习题-第二章/" data-id="cj6gm2syn0003wcqwgafgpm9o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sicp/">sicp</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/11/2017-07-11-python脚本知识点/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python要点总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Erlang/">Erlang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sicp/">sicp</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Erlang/" style="font-size: 10px;">Erlang</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/sicp/" style="font-size: 20px;">sicp</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/17/2017-08-17-sicp习题-第二章/">sicpϰ��-�ڶ���</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/11/2017-07-11-python脚本知识点/">python要点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/07/2017-06-07-sicp习题-第一章/">sicp习题-第一章</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/">Erlang常见报错和调试方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Jester<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
