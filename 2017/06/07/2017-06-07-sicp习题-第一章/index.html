@@ -5,17 +5,17 @@
   
   <title>sicp习题-第一章 | Jester&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="练习1.112345678910111213141516171819202122232425262728293031&amp;gt; 1010&amp;gt; (+ 5 3 4)12&amp;gt; (- 9 1)8&amp;gt; (/ 6 2)3&amp;gt; (+ (* 2 4) (- 4 6))6&amp;gt; (define a 3)&amp;gt; (define b (+ a 1))&amp;gt; (+ a b (* a b))19&amp;gt;">
+  <meta name="description" content="参考解答网站：http://community.schemewiki.org/?SICP-Solutions              http://wiki.drewhess.com/wiki/Category:SICP_solutions  练习1.112345678910111213141516171819202122232425262728293031&amp;gt; 1010&amp;gt; (+ 5">
 <meta name="keywords" content="sicp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sicp习题-第一章">
 <meta property="og:url" content="https://planan.github.io/2017/06/07/2017-06-07-sicp习题-第一章/index.html">
 <meta property="og:site_name" content="Jester&#39;s Blog">
-<meta property="og:description" content="练习1.112345678910111213141516171819202122232425262728293031&amp;gt; 1010&amp;gt; (+ 5 3 4)12&amp;gt; (- 9 1)8&amp;gt; (/ 6 2)3&amp;gt; (+ (* 2 4) (- 4 6))6&amp;gt; (define a 3)&amp;gt; (define b (+ a 1))&amp;gt; (+ a b (* a b))19&amp;gt;">
-<meta property="og:updated_time" content="2017-08-17T09:59:43.620Z">
+<meta property="og:description" content="参考解答网站：http://community.schemewiki.org/?SICP-Solutions              http://wiki.drewhess.com/wiki/Category:SICP_solutions  练习1.112345678910111213141516171819202122232425262728293031&amp;gt; 1010&amp;gt; (+ 5">
+<meta property="og:updated_time" content="2017-08-20T14:41:59.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sicp习题-第一章">
-<meta name="twitter:description" content="练习1.112345678910111213141516171819202122232425262728293031&amp;gt; 1010&amp;gt; (+ 5 3 4)12&amp;gt; (- 9 1)8&amp;gt; (/ 6 2)3&amp;gt; (+ (* 2 4) (- 4 6))6&amp;gt; (define a 3)&amp;gt; (define b (+ a 1))&amp;gt; (+ a b (* a b))19&amp;gt;">
+<meta name="twitter:description" content="参考解答网站：http://community.schemewiki.org/?SICP-Solutions              http://wiki.drewhess.com/wiki/Category:SICP_solutions  练习1.112345678910111213141516171819202122232425262728293031&amp;gt; 1010&amp;gt; (+ 5">
   
     <link rel="alternate" href="/atom.xml" title="Jester&#39;s Blog" type="application/atom+xml">
   
@@ -86,7 +86,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="练习1-1"><a href="#练习1-1" class="headerlink" title="练习1.1"></a>练习1.1</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&gt; 10</div><div class="line">10</div><div class="line">&gt; (+ 5 3 4)</div><div class="line">12</div><div class="line">&gt; (- 9 1)</div><div class="line">8</div><div class="line">&gt; (/ 6 2)</div><div class="line">3</div><div class="line">&gt; (+ (* 2 4) (- 4 6))</div><div class="line">6</div><div class="line">&gt; (define a 3)</div><div class="line">&gt; (define b (+ a 1))</div><div class="line">&gt; (+ a b (* a b))</div><div class="line">19</div><div class="line">&gt; (= a b)</div><div class="line">#f</div><div class="line">&gt; (if (and (&gt; b a) (&lt; b (* a b)))</div><div class="line">      b</div><div class="line">      a)</div><div class="line">4</div><div class="line">&gt; (cond ((= a 4) 6)</div><div class="line">        ((= b 4) (+ 6 7 a))</div><div class="line">        (else 25))</div><div class="line">16</div><div class="line">&gt; (+ 2 (if (&gt; b a) b a))</div><div class="line">6</div><div class="line">&gt; (* (cond ((&gt; a b) a)</div><div class="line">           ((&lt; a b) b)</div><div class="line">           (else -1))</div><div class="line">     (+ a 1))</div><div class="line">16</div></pre></td></tr></table></figure>
+        <blockquote>
+<p>参考解答网站：<a href="http://community.schemewiki.org/?SICP-Solutions" target="_blank" rel="external">http://community.schemewiki.org/?SICP-Solutions</a><br>              <a href="http://wiki.drewhess.com/wiki/Category:SICP_solutions" target="_blank" rel="external">http://wiki.drewhess.com/wiki/Category:SICP_solutions</a></p>
+</blockquote>
+<h3 id="练习1-1"><a href="#练习1-1" class="headerlink" title="练习1.1"></a>练习1.1</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&gt; 10</div><div class="line">10</div><div class="line">&gt; (+ 5 3 4)</div><div class="line">12</div><div class="line">&gt; (- 9 1)</div><div class="line">8</div><div class="line">&gt; (/ 6 2)</div><div class="line">3</div><div class="line">&gt; (+ (* 2 4) (- 4 6))</div><div class="line">6</div><div class="line">&gt; (define a 3)</div><div class="line">&gt; (define b (+ a 1))</div><div class="line">&gt; (+ a b (* a b))</div><div class="line">19</div><div class="line">&gt; (= a b)</div><div class="line">#f</div><div class="line">&gt; (if (and (&gt; b a) (&lt; b (* a b)))</div><div class="line">      b</div><div class="line">      a)</div><div class="line">4</div><div class="line">&gt; (cond ((= a 4) 6)</div><div class="line">        ((= b 4) (+ 6 7 a))</div><div class="line">        (else 25))</div><div class="line">16</div><div class="line">&gt; (+ 2 (if (&gt; b a) b a))</div><div class="line">6</div><div class="line">&gt; (* (cond ((&gt; a b) a)</div><div class="line">           ((&lt; a b) b)</div><div class="line">           (else -1))</div><div class="line">     (+ a 1))</div><div class="line">16</div></pre></td></tr></table></figure>
 <h3 id="练习1-2"><a href="#练习1-2" class="headerlink" title="练习1.2"></a>练习1.2</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; (/ (+ 5</div><div class="line">      4</div><div class="line">      (- 2</div><div class="line">         (- 3</div><div class="line">            (+ 6</div><div class="line">               (/ 4 5)))))</div><div class="line">   (* 3</div><div class="line">      (- 6 2)</div><div class="line">      (- 2 7)))</div><div class="line">-37/150</div></pre></td></tr></table></figure>
 <h3 id="练习1-3"><a href="#练习1-3" class="headerlink" title="练习1.3"></a>练习1.3</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">sum-of-bigger-two</span> a b c)</div><div class="line">  (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">and</span></span> (<span class="name"><span class="builtin-name">&lt;=</span></span> a b) (<span class="name"><span class="builtin-name">&lt;=</span></span> a c)) (<span class="name"><span class="builtin-name">+</span></span> b c))</div><div class="line">        ((<span class="name"><span class="builtin-name">and</span></span> (<span class="name"><span class="builtin-name">&lt;=</span></span> b a) (<span class="name"><span class="builtin-name">&lt;=</span></span> b c)) (<span class="name"><span class="builtin-name">+</span></span> a c))</div><div class="line">        ((<span class="name"><span class="builtin-name">and</span></span> (<span class="name"><span class="builtin-name">&lt;=</span></span> c a) (<span class="name"><span class="builtin-name">&lt;=</span></span> c b)) (<span class="name"><span class="builtin-name">+</span></span> a b))</div><div class="line">        ))</div></pre></td></tr></table></figure>
 <h3 id="练习1-4"><a href="#练习1-4" class="headerlink" title="练习1.4"></a>练习1.4</h3><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">a-plus-abs-b</span> a b)</div><div class="line">  ((<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">&gt;</span></span> b <span class="number">0</span>) + -) a b))</div></pre></td></tr></table></figure>
@@ -210,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题-第一章/" data-id="cj6jnxflw0001i8qwvx1j7yhw" class="article-share-link">Share</a>
+      <a data-url="https://planan.github.io/2017/06/07/2017-06-07-sicp习题-第一章/" data-id="cj6kw54ne000200qwhwtedaqy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sicp/">sicp</a></li></ul>
@@ -231,9 +234,9 @@
     </a>
   
   
-    <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/06/02/2017-06-01-hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Erlang常见报错和调试方法</div>
+      <div class="article-nav-title">Hello World</div>
     </a>
   
 </nav>
@@ -296,11 +299,11 @@
           </li>
         
           <li>
-            <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/">Erlang常见报错和调试方法</a>
+            <a href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2017/06/02/2017-06-01-hello-world/">Hello World</a>
+            <a href="/2017/06/02/2017-06-02-Erlang常见报错和调试方法/">Erlang常见报错和调试方法</a>
           </li>
         
       </ul>
